@@ -1,5 +1,6 @@
 package Noob;
 
+
 public class First {
 
     public static int f1(int i) { //求阶层
@@ -12,12 +13,12 @@ public class First {
         return f2(i-1) + f2(i-2);
     }
 
-    static int[] arr = new int[20];
+    static int[] arr = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
     public static int f3(int i) { //🐸跳台阶 改进版：避免重复计算 用一个数组保存计算结果，如果a[i]为0 默认值 代表未计算过
         if (i<=2) {
             arr[i] = i;
         }
-        if (arr[i] == 0) {
+        if (arr[i] == -1) {
             arr[i] = f3(i-1) + f3(i-2);
         }
         return arr[i];
@@ -38,10 +39,21 @@ public class First {
     }
 
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
+
+        int[] arr = new int[20];
+        for (int i=0; i<20; i++) { arr[i]= -1;}
+
+
+
         System.out.println(f1(10));
         System.out.println(f2(10));
-        System.out.println(f3(10));
+        System.out.println(f3(19));
         //for (int each:arr) { System.out.println(each); }
         System.out.println(f4(10));
+
+        long endTime = System.nanoTime();
+        long Time = endTime-startTime;
+        System.out.println("运行时间：" + Time);
     }
 }
