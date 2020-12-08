@@ -13,12 +13,12 @@ public class First {
         return f2(i-1) + f2(i-2);
     }
 
-    static int[] arr = new int[21];
-    public static int f3(int i) { //最佳优化
+    static int[] arr = new int[21]; //🐸跳台阶, 0 1 2 3 5 8 13 21 34 55
+    public static int f3(int i) {
         if (i<=2) {
             return i;
         }
-        else if (arr[i] == 0) { // 用else if就能避免f(0)的情况
+        else if (arr[i] == 0) {
             arr[i] = f3(i-1) + f3(i-2);
         }
         return arr[i];
@@ -42,10 +42,9 @@ public class First {
         long startTime = System.nanoTime();
 
         System.out.println(f1(10));
-        System.out.println(f2(10));
+        System.out.println(f2(21));
         System.out.println(f3(20));
-        //for (int each:arr) { System.out.println(each); }
-        System.out.println(f4(10));
+        System.out.println(f4(20));
 
         long endTime = System.nanoTime();
         long Time = endTime-startTime;
