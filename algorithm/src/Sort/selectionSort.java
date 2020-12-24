@@ -2,6 +2,7 @@ package Sort;
 
 import java.util.Arrays;
 
+//选择排序
 public class selectionSort {
 
     public static int[] array = new int[] {6,5,4,3,2,1};
